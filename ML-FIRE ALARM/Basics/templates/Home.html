@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRACTURE PREDICTION MODEL (Naive Bayes)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/premium-photo/modern-red-color-neon-background-design_853677-34685.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(179, 167, 167, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 100%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #090808;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .form-group {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button[type="submit"] {
+            background-color: #333332;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            background-color: rgba(5, 4, 4, 0.8);
+            border-radius: 10px;
+            font-size: 24px;
+            color: #fff;
+            padding: 20px;
+            max-width: 100%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>FIRE ALARM DETECTION MODEL(LOGISTIC REGRESSION)</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Temperature[C]:</td>
+                        <td><input type="text" name="Temperature"></td>
+                    </tr>
+                    <tr>
+                        <td>Humidity[%]:</td>
+                        <td><input type="text" name="Humidity"></td>
+                    </tr>
+                    <tr>
+                        <td>TVOC[ppb]:</td>
+                        <td><input type="text" name="TVOC"></td>
+                    </tr>
+                    <tr>
+                        <td>eCO2[ppm]:</td>
+                        <td><input type="text" name="eCO2"></td>
+                    </tr>
+                    <tr>
+                        <td>Raw_H2:</td>
+                        <td><input type="text" name="Raw_H2"></td>
+                    </tr>
+                    <tr>
+                        <td>Raw_Ethanol:</td>
+                        <td><input type="text" name="Raw_Ethanol"></td>
+                    </tr>
+                    <tr>
+                        <td>Pressure</td>
+                        <td><input type="text" name="Pressure"></td>
+                    </tr>
+                    <tr>
+                        <td>PM1</td>
+                        <td><input type="text" name="PM1"></td>
+                    </tr>
+                    <tr>
+                        <td>PM2</td>
+                        <td><input type="text" name="PM2"></td>
+                    </tr>
+                    <tr>
+                        <td>NC0</td>
+                        <td><input type="text" name="NC0"></td>
+                    </tr>
+                    <tr>
+                        <td>NC1</td>
+                        <td><input type="text" name="NC1"></td>
+                    </tr>
+                    <tr>
+                        <td>NC2</td>
+                        <td><input type="text" name="NC2"></td>
+                    </tr>
+                    <tr>
+                        <td>CNT</td>
+                        <td><input type="text" name="CNT"></td>
+                    </tr>
+                    
+                </table>
+               <tr> <button type="submit" name="Submit">Predict</button></tr>
+            </form>
+            <p class="result">{{result}}</p>
+        </div>
+        
+    </div>
+</body>
+</html>
